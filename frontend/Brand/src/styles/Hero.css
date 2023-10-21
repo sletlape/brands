@@ -1,0 +1,45 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--primarydark);
+    color: var(--shadeswhite);
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: absolute;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    padding: 2rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text {
+    margin-bottom: 1rem;
+}
+
+.hero .button.is-primary {
+    background-color: var(--primarymain);
+    color: var(--shadeswhite);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
