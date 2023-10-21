@@ -1,0 +1,21 @@
+.brands {
+    padding: 2rem 4rem;
+}
+
+.brand-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.brand-logo {
+    flex: 1;
+    max-width: calc(20% - 1rem);
+    min-width: calc(20% - 1rem);
+}
+
+.brand-logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
