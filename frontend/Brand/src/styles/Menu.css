@@ -1,0 +1,37 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primarydark);
+    padding: 1rem;
+    color: white;
+}
+
+.menu-left img {
+    width: 64px;
+    height: 64px;
+}
+
+.menu-center ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.menu-center a{
+    text-decoration: none;
+}
+
+.menu-right button {
+    all: unset;
+    background-color: var(--shadeswhite);
+    color: var(--primarymain);
+    border-radius: 50px;
+    box-sizing: border-box;
+    display: inline-flex;
+    gap: 8px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8px 16px;
+    position: relative;
+}

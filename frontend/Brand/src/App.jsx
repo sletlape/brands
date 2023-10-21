@@ -1,27 +1,13 @@
-export function App() {
+import React from 'react';
+import './App.css';
+import Menu from './components/Menu';
 
-    return (
-        <>
-            <div>
-                <div>
-                    <div className='logo'>logo</div>
-                    <div className='nav'>nav</div>
-                    <div className='btn-lets-talk'>btn</div>
-                </div>
-                <div className='hero-section'>
-                    hero
-                </div>
-                <div className='what-we-do-section'>
-                    - what we do
-                </div>
-                <div className='case-studies-sectinon'>
-                    - case studies
-                </div>
-                <div className='brands-section'>
-                    - You'll be in company
-                </div>
-                <div className='footer-section'></div>
-            </div>
-        </>
-    );
+function App() {
+  return (
+    <div className="App">
+      <Menu style={{ "backgroundColor": "green" }} />
+    </div>
+  );
 }
+
+export default App;
