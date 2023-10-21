@@ -1,0 +1,30 @@
+.case-studies {
+    padding: 2rem 4rem;
+}
+.case-study-list {
+    display: flex;
+    /* justify-content: space-around; */
+    /* gap: 20px; */
+}
+
+.case-study {
+    /* width: calc(33%); */
+    padding: 0.2rem; 
+    position: relative;
+}
+
+.case-study-info {
+    position: absolute;
+    padding: 1rem;
+    bottom: 0.5rem;
+    color: var(--shadeswhite);
+}
+
+.case-study-title {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
+.case-study-description {
+    font-size: 1.2rem;
+}
