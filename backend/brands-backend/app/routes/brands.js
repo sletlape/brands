@@ -1,21 +1,45 @@
-const express = require('express');
-const router = express.Router();
-const createError = require('http-errors');
+var express = require('express');
+var router = express.Router();
+var createError = require('http-errors');
+const mongoose = require('mongoose');
+const brandModel = require('../models/brand.model');
 
-/* GET brands listing. */
-router.get('/', function (req, res, next) {
+router.get('/', async function (req, res, next) {
+    const brands = await brandModel.find();
+    const brandsWithIdAsString = brands.map(brand => ({
+        ...brand.toObject(),
+        _id: brand._id.toString()
+    }));
+    res.json(brandsWithIdAsString);
 });
 
 /* GET brand by id. */
-router.get('/:id', function (req, res, next) {
+router.get('/:id', async function (req, res, next) {
+    // const brandId = mongoose.Types.ObjectId(req.params.id);
+    const brandFound = await brandModel.findById(req.params.id);
+
+    if (!brandFound) {
+        return next(createError(404, 'Brand not found'));
+    }
+
+    res.json(brandFound);
 });
 
 /* GET brand by brandName. */
-router.get('/brandname/:brandName', function (req, res, next) {
-});
+router.get('/brandname/:brandName', async function (req, res, next) {
+    const brandFound = await brandModel.findOne({ brandName: req.params.brandName });
 
-/* Filter brands by published date. */
-router.get('/published/:published', function (req, res, next) {
+    if (!brandFound) {
+        return next(createError(404, 'Brand Name not found'));
+    }
+
+    const brandWithIdAndPublishedAsString = {
+        ...brandFound.toObject(),
+        _id: brandFound._id.toString(),
+        published: brandFound.published.toISOString(),
+        logoURL: `http://localhost:3000/uploads/${brandFound.brandName}`
+    };
+    res.json(brandWithIdAndPublishedAsString);
 });
 
 module.exports = router;
