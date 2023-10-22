@@ -1,7 +1,25 @@
 body {
   font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
+.section-title {
+  display: flex;
+  position: relative;
+  align-items: center;
+  text-align: left;
+  margin: 50px 0;
+  ;
+}
+
+.section-title:before {
+  content: " ";
+  height: 2px;
+  width: 15px;
+  background: var(--primaryactive);
+  left: 0;
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+}

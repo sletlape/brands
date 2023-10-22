@@ -1,0 +1,40 @@
+.footer {
+    padding: 2rem 4rem;
+    background-color: var(--primarydark);
+    color: var(--shadeswhite);
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.left-section {
+    /* width: 66.66%; */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    justify-content: space-around;
+}
+
+.links-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right-section {
+    /* width: 33%; */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.job-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
