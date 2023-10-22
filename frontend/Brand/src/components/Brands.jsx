@@ -1,35 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Brands.css';
+// const brandLogosDir = '../assets/brandLogos/'; 
+
+const apiUrl = 'http://localhost:3000/brands';
 
 const Brands = () => {
-    const brandLogos = [
-        'bbc.png',
-        'blockchain.png',
-        'distell.png',
-        'engen.png',
-        'liquid.png',
-        'microsoft.png',
-        'multichoice.png',
-        'nike.png',
-        'pnp.png',
-        'sanlam.png',
-        'santam.png',
-        'spotify.png',
-        'tfg.png',
-        'tyme-bank.png',
-        'visa.png',
-        'wesgrow.png',
-    ];
+    const [brandLogos, setBrandLogos] = useState([]);
+
+    useEffect(() => {
+        // Fetch image data from your backend API
+        fetch(apiUrl)
+            .then((response) => response.json())
+            .then((data) => setBrandLogos(data))
+            .catch((error) => console.error('Error fetching images:', error));
+    }, []);
 
     return (
         <div className="brands">
-            <span className="section-title">Trusted by leading brands</span>
+            <p className="section-title">
+                You'll be in good company
+            </p>
+            <h1>Trusted by leading brands</h1>
+
+            {/* <img src={'../assets/brandLogos/pnp-black.svg'} alt={'logo'} /> */}
             <div className="brand-grid">
-                {brandLogos.map((logo, index) => (
-                    <div className="brand-logo" key={index}>
-                        <img src={`./assets/brandLogos/${logo}`} alt={`Brand Logo ${index + 1}`} />
-                    </div>
-                ))}
+                {
+                    brandLogos.length > 0 ?
+                        brandLogos.map((logo) => {
+                            brandLogos.map((logo) => (
+                                <div className="brand-logo" key={logo.id}>
+                                    <p>{JSON.stringify(logo)}</p>
+                                    {/* <img src={`http://localhost:3000${logo.imgPath}`} alt={logo.brandName} /> */}
+                                    <img src={'../assets/brandLogos/' + logo} alt={logo} />
+                                </div>
+                            ))
+                        })
+                        : <p>Trust is something you build, give us time</p>
+                }
             </div>
         </div>
     );
