@@ -42,4 +42,28 @@ router.get('/brandname/:brandName', async function (req, res, next) {
     res.json(brandWithIdAndPublishedAsString);
 });
 
+/* POST brand. auto generate id and published date*/
+router.post('/', async function (req, res, next) {
+    /* if brandName is not provided, return error */
+    if (!req.body.brandName) {
+        return res.status(400).send('Brand name is required');
+    }
+    /* if brandname already exists, return error */
+    const existingBrand = await brandModel.findOne({ brandName: req.body.brandName });
+    if (existingBrand) {
+        return res.status(400).send('Brand name already exists');
+    }
+
+    /* Generate new brand entry with publish date set at creation */
+    const newBrandLogo = new brandModel({
+        brandName: req.body.brandName,
+        logoURL: `http://localhost:3000/uploads/${req.body.brandName}`,
+        published: new Date().toISOString().slice(0, 10),
+    });
+
+    await newBrandLogo.save();
+
+    res.status(201).json(newBrandLogo);
+});
+
 module.exports = router;
