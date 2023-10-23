@@ -31,12 +31,12 @@ const CaseStudies = () => {
             <p className="section-title">Case Studies</p>
 
             <div className="case-study-list">
-                <ScrollCarousel
+                {/* <ScrollCarousel
                     autoplay
                     autoplaySpeed={2}
                     speed={2}
                     onReady={() => console.log('I am ready')}
-                >
+                > */}
                     {caseStudies.map((caseStudy, index) => (
                         <div className="case-study" key={index}>
                             <img src={caseStudy.image} alt={`Case Study ${index + 1}`} />
@@ -47,7 +47,7 @@ const CaseStudies = () => {
                             </div>
                         </div>
                     ))}
-                </ScrollCarousel>
+                {/* </ScrollCarousel> */}
             </div>
         </div>
     );

@@ -21,20 +21,16 @@ const Brands = () => {
                 You'll be in good company
             </p>
             <h1>Trusted by leading brands</h1>
-
-            {/* <img src={'../assets/brandLogos/pnp-black.svg'} alt={'logo'} /> */}
             <div className="brand-grid">
                 {
                     brandLogos.length > 0 ?
-                        brandLogos.map((logo) => {
-                            brandLogos.map((logo) => (
-                                <div className="brand-logo" key={logo.id}>
-                                    <p>{JSON.stringify(logo)}</p>
-                                    {/* <img src={`http://localhost:3000${logo.imgPath}`} alt={logo.brandName} /> */}
-                                    <img src={'../assets/brandLogos/' + logo} alt={logo} />
-                                </div>
-                            ))
-                        })
+                        brandLogos.map((logo) => (
+                            <div className="brand-logo" key={logo.id}>
+                                {/* <p>{JSON.stringify(logo)}</p> */}
+                                <img src={logo.logoUrl} alt={logo.brandName} />
+                                {/* <img src={'../assets/brandLogos/' + logo} alt={logo} /> */}
+                            </div>
+                        ))
                         : <p>Trust is something you build, give us time</p>
                 }
             </div>

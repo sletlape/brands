@@ -28,3 +28,15 @@
 .service-description {
     font-size: 1rem;
 }
+
+@media (max-width: 768px) {
+    .service {
+        width: calc(33.33% - 1rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .service {
+        width: calc(50% - 1rem);
+    }
+}

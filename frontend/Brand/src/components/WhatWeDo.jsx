@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/WhatWeDo.css';
 import webDev from '../assets/webDevIcon.svg';
-import uxDesign from '../assets/webDevIcon.svg';
-import mobile from '../assets/webDevIcon.svg';
-import blockchain from '../assets/webDevIcon.svg';
+import uxDesign from '../assets/uxIcon.svg';
+import mobile from '../assets/mobileDevIcon.svg';
+import blockchain from '../assets/blockchainIcon.svg';
 
 const WhatWeDo = () => {
     const services = [

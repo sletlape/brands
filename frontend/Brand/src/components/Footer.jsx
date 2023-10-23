@@ -10,12 +10,8 @@ const Footer = () => {
             <div className="footer-content">
                 <div className="left-section">
                     <div className="headline-section">
-                        <h1>Have a project in mind?
-                            <br />
-                            Lets make it happen
-                        </h1>
+                        <h1>Have a project in mind? Let's make it happen</h1>
                     </div>
-
                     <div className="links-section">
                         <ul>
                             <li>Terms of service</li>
@@ -39,14 +35,9 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-
                 <div className="right-section">
                     <div className="address-section">
-                        <p>22 Street Name, Suburb, 8000,
-                            <br />Cape Town, South Africa
-                            <br />+27 21 431 0001
-                            <br /><u>enquirie@website.co.za</u>
-                        </p>
+                        <p>22 Street Name, Suburb, 8000,<br />Cape Town, South Africa<br />+27 21 431 0001<br /><u>enquiry@website.co.za</u></p>
                     </div>
                     <div className="jobs-section">
                         <a href="#">Explore open jobs</a>
