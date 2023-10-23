@@ -3,12 +3,15 @@ const router = express.Router();
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 const brandModel = require('../models/brand.model');
+const upload = require('../middleware/upload');
 
+// Retrieve all brands
 router.get('/', async function (req, res, next) {
     const brands = await brandModel.find();
     res.json(brands);
 });
 
+// Retrieve a brand by ID
 router.get('/:id', async function (req, res, next) {
     const brandFound = await brandModel.findById(req.params.id);
 
@@ -19,6 +22,7 @@ router.get('/:id', async function (req, res, next) {
     res.json(brandFound);
 });
 
+// Retrieve a brand by brand name
 router.get('/brandname/:brandName', async function (req, res, next) {
     const brandFound = await brandModel.findOne({ brandName: req.params.brandName });
 
@@ -29,6 +33,7 @@ router.get('/brandname/:brandName', async function (req, res, next) {
     res.json(brandFound);
 });
 
+// Retrieve brands by published date
 router.get('/published/:published', async function (req, res, next) {
     const published = req.params.published;
     const publishedBrands = await brandModel.find({ published });
@@ -38,12 +43,14 @@ router.get('/published/:published', async function (req, res, next) {
     res.json(publishedBrands);
 });
 
-router.post('/', async function (req, res, next) {
-    console.log(req)
+// Create a new brand with file upload
+router.post('/upload', upload.single('logoImg'), async function (req, res, next) {
+    if (!req.file) {
+        return res.status(400).send('Please upload an image');
+    }
     if (!req.body.brandName) {
         return res.status(400).send('Brand name is required');
     }
-
     const existingBrand = await brandModel.findOne({ brandName: req.body.brandName });
     if (existingBrand) {
         return res.status(400).send('Brand name already exists');
@@ -51,7 +58,7 @@ router.post('/', async function (req, res, next) {
 
     const newBrand = new brandModel({
         brandName: req.body.brandName,
-        logoURL: req.body.logoURL,
+        logoUrl: req.file.path,
         published: new Date().toISOString().slice(0, 10),
     });
 

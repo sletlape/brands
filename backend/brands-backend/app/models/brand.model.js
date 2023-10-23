@@ -10,7 +10,7 @@ const brandSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    imgPath: {
+    logoUrl: {
         type: String,
         required: true
     }

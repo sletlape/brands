@@ -51,7 +51,7 @@ describe('Brands API', () => {
         it('POST /brands should return 201 and a JSON object with the new brand', async () => {
             const newBrand = {
                 brandName: 'Volvo',
-                logoURL: './images/volvo.png',
+                logoUrl: './images/volvo.png',
             };
             const response = await request(app).post('/brands').send(newBrand);
             expect(response.statusCode).toBe(201);
@@ -62,7 +62,7 @@ describe('Brands API', () => {
 
         it('POST /brands should return 400 if the brandName is not provided', async () => {
             const newBrand = {
-                logoURL: './images/nothing.png',
+                logoUrl: './images/nothing.png',
             };
             const response = await request(app).post('/brands').send(newBrand);
             expect(response.statusCode).toBe(400);
@@ -71,7 +71,7 @@ describe('Brands API', () => {
         it('POST /brands should return 404 if the wrong endpoint is used', async () => {
             const newBrand = {
                 brandName: 'Wrong',
-                logoURL: './images/wrong.png',
+                logoUrl: './images/wrong.png',
             };
             const response = await request(app).post('/brand').send(newBrand);
             expect(response.statusCode).toBe(404);
@@ -80,7 +80,7 @@ describe('Brands API', () => {
         it('POST /brands should return 400 if the brandName already exists', async () => {
             const newBrand = {
                 brandName: 'BMW',
-                logoURL: './images/bmw.png',
+                logoUrl: './images/bmw.png',
             };
             const response = await request(app).post('/brands').send(newBrand);
             expect(response.statusCode).toBe(400);
