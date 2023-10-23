@@ -56,9 +56,11 @@ router.post('/upload', upload.single('logoImg'), async function (req, res, next)
         return res.status(400).send('Brand name already exists');
     }
 
+    console.log(req.file);
+
     const newBrand = new brandModel({
         brandName: req.body.brandName,
-        logoUrl: req.file.path,
+        logoUrl: `http://localhost:3000/uploads/${req.file.filename}`,
         published: new Date().toISOString().slice(0, 10),
     });
 
