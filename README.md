@@ -1,14 +1,18 @@
-# brands
+# Brands
 
-This is a branding page fullstack project which has a backend and a frontend.
+Welcome to the Brands project! This is a full-stack project focused on branding, with both a backend and a frontend.
 
-The project was built using the MERN stack.
+This project was built using the MERN stack.
 
-./backend - contains the backend code
-./frontend/ - contains the frontend code
+## Project Structure
 
-Please go through the README.md files in the respective folders for more details.
+- `./backend` - This directory contains the backend code.
+- `./frontend/` - This directory contains the frontend code.
 
-Make sure to follow the swagger doc instructions for posting images to the backend so that the images can be displayed on the frontend.
+Please refer to the README.md files in the respective folders for more detailed information.
 
-The backend needs to be running for the frontend to recieve the brand logos.
+## Important Note
+
+Please follow the instructions in the Swagger documentation for posting images to the backend. This is necessary for the images to be displayed on the frontend.
+
+Remember, the backend needs to be running for the frontend to receive and display the brand logos. Enjoy exploring!
