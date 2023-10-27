@@ -7,7 +7,25 @@ const upload = require('../middleware/upload');
 
 // Retrieve all brands
 router.get('/', async function (req, res, next) {
-    const brands = await brandModel.find();
+    let query = brandModel.find();
+
+    if (req.query.sort) {
+        const sortOrder = req.query.sort === 'asc' ? 1 : -1;
+        query.sort({ brandName: sortOrder });
+    }
+
+
+    if (req.query.published && req.query.date) {
+        const date = new Date(req.query.date);
+        console.log(date);
+        if (req.query.published === 'before') {
+            query.where('published').gt(date);
+        } else {
+            query.where('published').lt(date);
+        }
+    }
+
+    const brands = await query.exec();
     res.json(brands);
 });
 
@@ -61,7 +79,7 @@ router.post('/upload', upload.single('logoImg'), async function (req, res, next)
     const newBrand = new brandModel({
         brandName: req.body.brandName,
         logoUrl: `http://localhost:3000/uploads/${req.file.filename}`,
-        published: new Date().toISOString().slice(0, 10),
+        published: new Date().toISOString(),
     });
 
     await newBrand.save();

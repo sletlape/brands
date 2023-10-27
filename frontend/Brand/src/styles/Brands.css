@@ -20,6 +20,25 @@
     display: block;
 } */
 
+.sort-filter{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.sort-filter>button{
+    all: unset;
+    color: var(--shadeswhite);
+    background-color: var(--primarymain);
+    border-radius: 50px;
+    padding: 0.5rem;
+    /* justify-content: center; */
+}
+
+.filter-by-date{
+    justify-content: sp;
+}
+
 @media (max-width: 768px) {
     .brand-logo {
         max-width: calc(33.33% - 1rem);

@@ -1,0 +1,87 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: Brands API
+paths:
+  /brands:
+    get:
+      summary: Retrieve all brands
+      parameters:
+        - name: sort
+          in: query
+          description: Sort order for brand names
+          required: false
+          type: string
+        - name: published
+          in: query
+          description: Filter by published date
+          required: false
+          type: string
+        - name: date
+          in: query
+          description: Date for filtering brands by published date
+          required: false
+          type: string
+      responses:
+        '200':
+          description: A list of brands.
+    post:
+      summary: Create a new brand with file upload
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: logoImg
+          in: formData
+          description: The logo image to upload.
+          required: true
+          type: file
+        - name: brandName
+          in: formData
+          description: The brand name.
+          required: true
+          type: string
+      responses:
+        '201':
+          description: The created brand.
+  /brands/{id}:
+    get:
+      summary: Retrieve a brand by ID.
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the brand to retrieve.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The brand with the provided ID.
+        '404':
+          description: Brand not found.
+  /brands/brandname/{brandName}:
+    get:
+      summary: Retrieve a brand by brand name.
+      parameters:
+        - name: brandName
+          in: path
+          description: The brand name to retrieve.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The brand with the provided brand name.
+        '404':
+          description: Brand Name not found.
+  /brands/published/{published}:
+    get:
+      summary: Retrieve brands by published date.
+      parameters:
+        - name: published
+          in: path
+          description: The published date to retrieve brands by.
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The brands with the provided published date.
+        '404':
+          description: Published date not found.
