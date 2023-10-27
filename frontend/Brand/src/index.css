@@ -1,3 +1,26 @@
+:root {
+  --linkactive: rgba(58, 81, 187, 1);
+  --linkdark: rgba(56, 79, 184, 1);
+  --linkhover: rgba(62, 86, 196, 1);
+  --linklight: rgba(238, 243, 252, 1);
+  --linkmain: rgba(72, 95, 199, 1);
+  --primaryactive: rgba(209, 0, 201, 1);
+  --primarydark: rgba(67, 9, 100, 1);
+  --primaryhover: rgba(153, 57, 208, 1);
+  --primarylight: rgba(235, 255, 252, 1);
+  --primarymain: rgba(112, 37, 155, 1);
+  --shadeswhite: rgba(255, 255, 255, 1);
+}
+
 body {
-    font-family: 'Inter', sans-serif;
+  margin: auto;
+  max-width: 1440px;
+}
+
+:root {
+  font-family: Inter, sans-serif;
+}
+
+a {
+  text-decoration: none;
 }
