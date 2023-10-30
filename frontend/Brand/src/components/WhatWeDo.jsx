@@ -5,6 +5,11 @@ import uxDesign from '../assets/uxIcon.svg';
 import mobile from '../assets/mobileDevIcon.svg';
 import blockchain from '../assets/blockchainIcon.svg';
 
+/**
+ * This component represents a section of a page that describes what the company does.
+ * It renders a list of services, each with a title, description, and an associated icon.
+ */
+
 const WhatWeDo = () => {
     const services = [
         {

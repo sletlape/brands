@@ -2,6 +2,12 @@ import React from 'react';
 import '../styles/Hero.css'; // Import your Hero component's CSS file
 import heroImage from '../assets/hero-bg.png';
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * Renders an image as the background of the Hero component WITH a title, text, and button.
+ */
+
 const Hero = () => {
     return (
         <div className="hero">

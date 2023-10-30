@@ -6,6 +6,15 @@ import '../styles/Brands.css';
 
 const apiUrl = 'http://localhost:3000/brands';
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * Renders a list of brands.
+ * The list of brands is fetched from the backend API.
+ * The list of brands can be filtered by date published (backend API supports filtering by date published).
+ * The list of brands can be sorted by brand name (backend API supports sorting by brand name).
+ */
+
 const Brands = () => {
     const [brandLogos, setBrandLogos] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null);
@@ -14,7 +23,6 @@ const Brands = () => {
 
     useEffect(() => {
         fetchBrands();
-
     }, []);
 
 

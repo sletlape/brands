@@ -6,6 +6,7 @@ const brandModel = require('../models/brand.model');
 const upload = require('../middleware/upload');
 
 // Retrieve all brands
+/// If params are passed, filter the results by those params or sort them by the brandName asc or desc
 router.get('/', async function (req, res, next) {
     let query = brandModel.find();
 

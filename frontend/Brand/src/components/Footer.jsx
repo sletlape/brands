@@ -1,6 +1,13 @@
 import React from 'react';
 import '../styles/Footer.css';
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * Renders a footer component with a title and a list of links.
+ * The links are static and can be replaced with real links when the site is live.
+ */
+
 const Footer = () => {
     return (
         <div className="footer">

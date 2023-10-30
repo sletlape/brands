@@ -6,6 +6,14 @@ import caseStudy1 from '../assets/olimpian.png'
 import caseStudy2 from '../assets/savings.png';
 import caseStudy3 from '../assets/skhokho.png';
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * Renders a list of case studies.
+ * Each case study has a title, description, and image.
+ * The image in the case study is its background image.
+ */
+
 const CaseStudies = () => {
     const caseStudies = [
         {
